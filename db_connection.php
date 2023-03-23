@@ -2,7 +2,7 @@
     $server_address="localhost";
     $username="root";
     $password="";
-    $database_name="movie-lens";
+    $database_name="movies-lens";
 
     $conn = mysqli_connect($server_address, $username, $password, $database_name);
 

@@ -27,10 +27,13 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="employees-tab" data-bs-toggle="tab" data-bs-target="#employees" type="button" role="tab" aria-controls="home" aria-selected="true">Employees</button>
+        <button class="nav-link active" id="movies-tab" data-bs-toggle="tab" data-bs-target="#movies" type="button" role="tab" aria-controls="home" aria-selected="true">Movies</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="add-employee-tab" data-bs-toggle="tab" data-bs-target="#add-employee" type="button" role="tab" aria-controls="profile" aria-selected="false">Add employee</button>
+        <button class="nav-link" id="ratings-tab" data-bs-toggle="tab" data-bs-target="#ratings" type="button" role="tab" aria-controls="profile" aria-selected="false">Ratings</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tags-tab" data-bs-toggle="tab" data-bs-target="#tags" type="button" role="tab" aria-controls="profile" aria-selected="false">Tags</button>
       </li>
     </ul>
     
