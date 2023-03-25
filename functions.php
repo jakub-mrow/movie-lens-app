@@ -41,7 +41,11 @@
     function get_all_ratings()
     {
         global $conn;
-        $sql = "SELECT * FROM ratings LIMIT 20";
+        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $limit = 20;
+        $start = ($page - 1) * $limit;
+
+        $sql = "SELECT * FROM ratings LIMIT $start, $limit";
         $result = mysqli_query($conn, $sql);
     
         while ($row = mysqli_fetch_assoc($result)) {
@@ -52,10 +56,6 @@
                         <h4 class="card-title">User Id: <?php echo ($row["userId"]) ?></h4>
                         <p class="card-text">Movie Id: <?php echo ($row["movieId"]) ?></p>
                         <p class="card-text">Rating: <?php echo ($row["ratings"]) ?></p>
-                        <!-- <p class="card-text">Timestamp: <?php echo ($row["timestamp"]) ?></p> -->
-                        <a name="" id="" class="btn btn-primary" href="update_rating.php?id=<?php echo($row["id"])?>" role="button">Update</a>
-                        <!-- <a name="" id="" class="btn btn-danger" href="delete_rating.php?id=<?php echo($row["id"])?>" role="button">Delete</a> -->
-                        
                     </div>
                 </div>
             </div>
@@ -66,7 +66,11 @@
     function get_all_tags()
     {
         global $conn;
-        $sql = "SELECT * FROM tags LIMIT 20";
+        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $limit = 20;
+        $start = ($page - 1) * $limit;
+        
+        $sql = "SELECT * FROM tags LIMIT $start, $limit";
         $result = mysqli_query($conn, $sql);
     
         while ($row = mysqli_fetch_assoc($result)) {
