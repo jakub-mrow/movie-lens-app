@@ -3,7 +3,7 @@
     {
         global $conn;
         $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-        $limit = 5;
+        $limit = 20;
         $start = ($page - 1) * $limit;
         
         $sql = "SELECT * FROM movies LIMIT $start,$limit";
@@ -121,5 +121,16 @@
     function delete_movie($id){
         global $conn;
         $sql = "DELETE FROM movies WHERE id=$id";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    function add_movie($name, $categories){
+        global $conn;
+
+        $sql_query = "SELECT MAX(id) as id FROM movies";
+        $result_id = mysqli_query($conn, $sql_query);
+        $max_id = mysqli_fetch_assoc($result_id)["id"] + 1;
+
+        $sql = "INSERT INTO movies (id, name, categories) VALUES ($max_id, '$name', '$categories');";
         $result = mysqli_query($conn, $sql);
     }

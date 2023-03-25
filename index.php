@@ -9,6 +9,9 @@
     <div class="tab-content">
         <div class="tab-pane active" id="movies" role="tabpanel" aria-labelledby="view-movies-tab">
             <div class="container">
+                <div class="mx-auto">
+                    <a name="" id="" class="btn btn-primary mt-4" href="add_movie.php" role="button">Add Movie</a>
+                </div>
                 <div class="row justify-content-center align-items-center g-2 mt-4">
                     <!-- Pagination navbar -->
                     <nav aria-label="...">
@@ -22,11 +25,6 @@
                                 }
                                 ?>">Previous</a>
                             </li>
-
-                            <?php for($i = 1; $i <= 5; $i++): ?>
-                            <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $i?>"><?php echo $i?></a>
-                            </li>
-                            <?php endfor?>
 
                             <li class="page-item active">
                                 <a class="page-link" href="index.php?page=<?php echo $_GET["page"]+1?>">Next</a>
