@@ -23,6 +23,7 @@
 <div class="container">
     <?php get_movie_tags($_GET["movie_id"]) ?>
     <a name="" id="" class="btn btn-primary" href="index.php" role="button">Back</a>
+    <a name="" id="" class="btn btn-success" href="add_tag.php?movie_id=<?php echo $_GET["movie_id"]?>" role="button">Add new movie tag</a>
 </div>
 
     

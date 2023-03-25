@@ -99,6 +99,7 @@
                     <th scope="col">UserId</th>
                     <th scope="col">movieId</th>
                     <th scope="col">Tag</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -109,6 +110,11 @@
                     <td><?php echo ($row["userId"]) ?></td>
                     <td><?php echo ($row["movieId"]) ?></td>
                     <td><?php echo ($row["tag"]) ?></td>
+                    <td>
+                        <a name="" id="" class="btn btn-danger" role="button" 
+                            href="delete_tag.php?userId=<?php echo ($row["userId"])?>&movieId=<?php echo ($row["movieId"])?>&tag=<?php echo ($row["tag"])?>"
+                        >Delete</a>
+                    </td>
                 </tr>
             <?php
         }
@@ -132,5 +138,17 @@
         $max_id = mysqli_fetch_assoc($result_id)["id"] + 1;
 
         $sql = "INSERT INTO movies (id, name, categories) VALUES ($max_id, '$name', '$categories');";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    function delete_tag($user_id, $movie_id, $tag){
+        global $conn;
+        $sql = "DELETE FROM tags WHERE userId=$user_id AND movieId=$movie_id AND tag='$tag'";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    function add_tag($user_id, $movie_id, $tag){
+        global $conn;
+        $sql = "INSERT INTO tags (userId, movieId, tag) VALUES ($user_id, $movie_id, '$tag')";
         $result = mysqli_query($conn, $sql);
     }
