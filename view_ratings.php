@@ -7,17 +7,17 @@
                 <nav aria-label="...">
                     <ul class="pagination">
                         <li class="page-item">
-                            <a class="page-link" href="view_ratings.php?page=<?php 
-                            if($_GET["page"]-1 > 0){
-                                echo $_GET["page"]-1;
+                            <a class="page-link" href="view_ratings.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php 
+                            if($_GET["page_ratings"]-1 > 0){
+                                echo $_GET["page_ratings"]-1;
                             } else {
                                 echo 1;
                             }
-                            ?>">Previous</a>
+                            ?>&page_tags=<?php echo ($_GET["page_tags"])?>">Previous</a>
                         </li>
 
                         <li class="page-item active">
-                            <a class="page-link" href="view_ratings.php?page=<?php echo $_GET["page"]+1?>">Next</a>
+                            <a class="page-link" href="view_ratings.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php echo $_GET["page_ratings"]+1?>&page_tags=<?php echo ($_GET["page_tags"])?>">Next</a>
                         </li>
                     </ul>
                 </nav>

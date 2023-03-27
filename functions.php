@@ -41,9 +41,9 @@
     function get_all_ratings()
     {
         global $conn;
-        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $page_ratings = isset($_GET["page_ratings"]) ? $_GET["page_ratings"] : 1;
         $limit = 20;
-        $start = ($page - 1) * $limit;
+        $start = ($page_ratings - 1) * $limit;
 
         $sql = "SELECT * FROM ratings LIMIT $start, $limit";
         $result = mysqli_query($conn, $sql);
@@ -66,9 +66,9 @@
     function get_all_tags()
     {
         global $conn;
-        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $page_tags = isset($_GET["page_tags"]) ? $_GET["page_tags"] : 1;
         $limit = 20;
-        $start = ($page - 1) * $limit;
+        $start = ($page_tags - 1) * $limit;
         
         $sql = "SELECT * FROM tags LIMIT $start, $limit";
         $result = mysqli_query($conn, $sql);
