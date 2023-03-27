@@ -25,12 +25,12 @@
     <!-- place navbar here -->
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <a name="" id="" class="btn btn-outline-primary btn-lg" href="index.php?page=<?php echo ($_GET["page"]) ?>" role="button">Movies</a>
+      <a name="" id="" class="btn btn-outline-primary btn-lg" href="index.php?page=<?php echo ($_GET["page"]) ?>&page_ratings=<?php echo ($_GET["page_ratings"]) ?>&page_tags=<?php echo ($_GET["page_tags"])?>" role="button">Movies</a>
       <li class="nav-item" role="presentation">
-        <a name="" id="" class="btn btn-outline-primary btn-lg" href="view_ratings.php?page=<?php echo ($_GET["page"]) ?>" role="button">Ratings</a>
+        <a name="" id="" class="btn btn-outline-primary btn-lg" href="view_ratings.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php echo ($_GET["page_ratings"])?>&page_tags=<?php echo ($_GET["page_tags"])?>" role="button">Ratings</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a name="" id="" class="btn btn-outline-primary btn-lg" href="view_tags.php?page=<?php echo ($_GET["page"]) ?>" role="button">Tags</a>
+        <a name="" id="" class="btn btn-outline-primary btn-lg" href="view_tags.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php echo ($_GET["page_ratings"])?>&page_tags=<?php echo ($_GET["page_tags"])?>" role="button">Tags</a>
       </li>
     </ul>
 

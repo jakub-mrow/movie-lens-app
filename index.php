@@ -1,9 +1,11 @@
 <?php include("header.php") ?>
 
 <?php 
-    if (!isset($_GET["page"])){
-        header("Location: http://localhost:8080/?page=1");
+    if (!isset($_GET["page"]) || !isset($_GET["page_ratings"] ) || !isset($_GET["page_tags"])){
+        header("Location: http://localhost:8080/?page=1&page_ratings=1&page_tags=1");
     }
+
+    
 ?>
 <main>
     <div class="tab-content">
@@ -24,11 +26,11 @@
                                 } else {
                                     echo 1;
                                 }
-                                ?>">Previous</a>
+                                ?>&page_ratings=<?php echo $_GET["page_ratings"]?>&page_tags=<?php echo ($_GET["page_tags"])?>">Previous</a>
                             </li>
 
                             <li class="page-item active">
-                                <a class="page-link" href="index.php?page=<?php echo $_GET["page"]+1?>">Next</a>
+                                <a class="page-link" href="index.php?page=<?php echo $_GET["page"]+1?>&page_ratings=<?php echo $_GET["page_ratings"]?>&page_tags=<?php echo ($_GET["page_tags"])?>">Next</a>
                             </li>
                         </ul>
                     </nav>
