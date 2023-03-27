@@ -26,7 +26,7 @@
                         <p class="card-text">Categories:</p>
                         <p class="card-text"><?php echo ($row["categories"]) ?></p>
                         <!-- <p class="card-text">Id: <?php echo ($row["id"]) ?></p> -->
-                        <a name="" id="" class="btn btn-primary" href="update_movie.php?id=<?php echo($row["id"])?>" role="button">Update</a>
+                        <a name="" id="" class="btn btn-primary" href="update_movie.php?id=<?php echo($row["id"])?>&page=<?php echo ($_GET["page"])?>" role="button">Update</a>
                         <a name="" id="" class="btn btn-danger" href="delete_movie.php?id=<?php echo($row["id"])?>" role="button">Delete</a>
                         <a name="" id="" class="btn btn-success" href="movie_tags.php?movie_id=<?php echo($row["id"])?>&page=<?php echo($_GET["page"])?>" role="button">Tags</a>
                     </div>
@@ -154,5 +154,29 @@
     function add_tag($user_id, $movie_id, $tag){
         global $conn;
         $sql = "INSERT INTO tags (userId, movieId, tag) VALUES ($user_id, $movie_id, '$tag')";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    function add_user(){
+        global $conn;
+
+        $sql_query = "SELECT MAX(userId) as userId FROM tags";
+        $result_id = mysqli_query($conn, $sql_query);
+        $user_id = mysqli_fetch_assoc($result_id)["userId"];
+
+        $sql = "INSERT INTO users VALUES ($user_id + 1)";
+        $result = mysqli_query($conn, $sql);
+
+    }
+
+    function update_movie($movie_id, $name, $categories){
+        global $conn;
+        $sql = "UPDATE movies SET name = '$name', categories = '$categories' WHERE id = $movie_id";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    function add_rating($user_id, $movie_id, $rating){
+        global $conn;
+        $sql = "INSERT INTO ratings (userId, movieId, ratings) VALUES ($user_id, $movie_id, $rating)";
         $result = mysqli_query($conn, $sql);
     }
