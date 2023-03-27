@@ -24,7 +24,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (isset($_POST["add"])){
             add_rating($_POST["user_id"], $_POST["movie_id"], $_POST["rating"]);
-            header("Location: http://localhost:8080/view_ratings.php");
+            header("Location: http://localhost:8080/view_ratings.php?page=".$_GET["page"]."&page_ratings=".$_GET["page_ratings"]."&page_tags=".$_GET["page_tags"]);
         }
     }
 
@@ -33,7 +33,7 @@
 <div class="container">
     <div class="row justify-content-center align-items-center g-2">
         <div class="col-8">
-            <form action="add_rating.php" method="post">
+            <form action="add_rating.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php echo $_GET["page_ratings"]+1?>&page_tags=<?php echo ($_GET["page_tags"])?>" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">UserId</label>
                     <input type="text" value="" required="required" class="form-control" name="user_id" id="" aria-describedby="helpId" placeholder="">
@@ -60,7 +60,7 @@
 
             </form>
             <br>
-            <a class="btn btn-primary" href="view_ratings.php" role="button">Back</a>
+            <a class="btn btn-primary" href="view_ratings.php?page=<?php echo ($_GET["page"])?>&page_ratings=<?php echo $_GET["page_ratings"]+1?>&page_tags=<?php echo ($_GET["page_tags"])?>" role="button">Back</a>
         </div>
     </div>
 </div>
