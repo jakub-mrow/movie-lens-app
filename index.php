@@ -13,6 +13,7 @@
             <div class="container">
                 <div class="mx-auto">
                     <a name="" id="" class="btn btn-primary mt-4" href="add_movie.php" role="button">Add Movie</a>
+                    <a name="" id="" class="btn btn-danger mt-4" href="add_user.php" role="button">Add User</a>
                 </div>
                 <div class="row justify-content-center align-items-center g-2 mt-4">
                     <!-- Pagination navbar -->
